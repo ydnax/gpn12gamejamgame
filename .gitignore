@@ -1,0 +1,4 @@
+.scons*
+*.bin
+*.o
+notes

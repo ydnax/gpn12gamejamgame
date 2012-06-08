@@ -6,9 +6,10 @@ namespace picppgl{
 class ObTest:public levelObject, gfxobject{
 private:
     Image img;
-    float x=50;
-    float y=50;
-    float sp=50;
+    float x=200;
+    float y=200;
+    float spx=50;
+    float spy=100;
 
 public:
     ObTest(Level*lvl);

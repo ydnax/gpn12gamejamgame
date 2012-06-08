@@ -4,7 +4,7 @@
 namespace picppgl{
 struct gfxobject{
     virtual void draw(Image&)=0;
-    virtual ~gfxobject(){};
+    //virtual ~gfxobject(){};
 };
 }
 #endif

@@ -4,6 +4,7 @@
 #include <game_name/Objects/Unit.hpp>
 #include <game_name/Objects/Node.hpp>
 #include <game_name/Objects/ImgObj.hpp>
+#include <game_name/Objects/MoneyInfo.hpp>
 #include <game_name/GameLogic/UnitCtrl.hpp>
 #include <game_name/GameLogic/Players.hpp>
 #include <iostream>

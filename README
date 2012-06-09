@@ -6,6 +6,8 @@ sdl, sdl_image, sdl_gfx, sdl_ttf
 
 BUILD:
 scons
+for gcc: scons -c SCons.gcc 
+add debug=1 to build with debug symbols and (with clang) with runtime checks
 
 font:
 Terminal Grotesque (https://github.com/raphaelbastide/Terminal-Grotesque) SIL Open Font License 

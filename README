@@ -1,9 +1,11 @@
-BUILD:
-tested width
-g++-4.7.0
-clang++ 3.1r2
-for problems with clang and the gcc stl see http://libcxx.llvm.org/
-LIBS:
+REQUIREMENTS:
+tested with
+clang++ 3.1r2 (for problems with clang and the gcc stl see http://libcxx.llvm.org/ )
+required libs:
 sdl, sdl_image, sdl_gfx, sdl_ttf
 
-you may need scons
+BUILD:
+scons
+
+font:
+Terminal Grotesque (https://github.com/raphaelbastide/Terminal-Grotesque) SIL Open Font License 

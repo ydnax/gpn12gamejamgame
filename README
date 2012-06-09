@@ -6,7 +6,7 @@ sdl, sdl_image, sdl_gfx, sdl_ttf
 
 BUILD:
 scons
-for gcc: scons -c SCons.gcc 
+for gcc: scons -f SCons.gcc 
 add debug=1 to build with debug symbols and (with clang) with runtime checks
 
 font:

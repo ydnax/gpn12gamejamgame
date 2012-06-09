@@ -14,6 +14,7 @@ class Stats{
         typedef std::function<void(float)> SetFun;
         InfoFun getStatFun(string key);
         SetFun  addStatFun(string key);
+        SetFun  setStatFun(string key);
 };
 
 }

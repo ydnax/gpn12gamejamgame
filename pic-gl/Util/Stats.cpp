@@ -14,5 +14,10 @@ Stats::SetFun  Stats::addStatFun(string key){
         data[key]+=val;
     };
 }
+Stats::SetFun  Stats::setStatFun(string key){
+    return [&](float val)->void{
+        data[key]=val;
+    };
+}
 
 }

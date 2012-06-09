@@ -25,6 +25,9 @@ void Node::real_event(char ev){
         case 'b':
             if( !((owner==Player::User)&&(unitcnt>0)) )
                 return;
+            if(l->money()<25)
+                return;
+            l->money(l->money()-25);
             unitcnt++;
         break;
         case ' ':
@@ -64,21 +67,13 @@ void Node::draw(Image &target){
 }
 
 void Node::clicked(){
-    //std::cout<<"recvd click "<<x<<" "<<y<<std::endl;
     if(lastClicked==nullptr){
-        //cout<<"sel: "<<this<<endl;
         lastClicked=this;
     }else if(lastClicked==this){
-        ///cout<<"double"<<endl;
         lastClicked=nullptr;
     }else if( (lastClicked->unitcount()>1)&&(lastClicked->Owner()==Player::User) ){
-        //cout<<"SEND THE TROOPS"<<endl;
-        /*
-        auto ex=lastClicked->getBox().p.x;
-        auto ey=lastClicked->getBox().p.y;//*/
         lastClicked->unitcount(lastClicked->unitcount()-1);
         new Unit{lastClicked->Owner(), lastClicked, this,l};
-        //lastClicked=nullptr; 
     }else{
         cout<<"You have no units to move there "<<this<<endl;
     }

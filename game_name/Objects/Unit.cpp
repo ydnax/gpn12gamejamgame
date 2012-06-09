@@ -26,7 +26,13 @@ Unit::Unit(Player owner, Node *start , Node *target_, Level* lvl):
     float ratioy=ly/distance;
     spx=speed*ratiox;
     spy=speed*ratioy;
-    int load=start->storage()%max_storage+1;
+
+    int load;
+    if(start->storage()>=max_storage){
+        load=max_storage;
+    }else{
+        load=start->storage();
+    }
     start->storage(start->storage()-load);
     storage_=load;
 }

@@ -1,6 +1,5 @@
 #include "Level.hpp"
 namespace picppgl{
-Level::Level(){}
 
 void Level::update(int ticks){
     for(auto &&obj: objects.data()){
@@ -13,6 +12,9 @@ void Level::addObj(levelObject *o){
 }
 void Level::delObj(levelObject *o){
     objects.element_delete(o);
+}
+bool Level::hasWon(){
+    return winfun();
 }
 Level::~Level(){
     objects.realDelete();

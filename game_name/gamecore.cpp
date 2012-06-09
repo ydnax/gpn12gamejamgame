@@ -9,7 +9,7 @@ namespace picppgl{
 gamecore::gamecore(){
     window=new mainwindow(800, 500);
     auto lvl1=[]()->Level*{
-        auto lvl=new Level{};
+        auto lvl=new Level([](){return false;});
         new Node(50,50,lvl);
         new Node(200,100,lvl);
         new Node(100,200,lvl);
@@ -22,7 +22,7 @@ void gamecore::gameloop(){
     timer.start();
     for(auto &&lgen:levels){
         auto level=lgen();
-        while(true){
+        while(!level->hasWon()){
             window->render();
             level->update(timer.get_dticks());
             clickctrl->handleInput();

@@ -8,6 +8,7 @@ class Node:public levelObject, gfxobject, clickable{
 private:
     Image img;
     int x,y;
+    Level *l;
 public:
     Node(int x, int y, Level*lvl);
     virtual void draw(Image&);

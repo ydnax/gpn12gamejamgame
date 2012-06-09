@@ -17,6 +17,7 @@ private:
     winCondition winfun;
 public:
     Level(winCondition wc):winfun(wc){}
+    void setWinFun(winCondition wc){winfun=wc;}
     void update(int);
     void addObj(levelObject*);
     void delObj(levelObject*);

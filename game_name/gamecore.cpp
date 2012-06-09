@@ -9,11 +9,14 @@ namespace picppgl{
 gamecore::gamecore(){
     window=new mainwindow(800, 500);
     auto lvl1=[]()->Level*{
-        auto lvl=new Level([](){return false;});
+        auto lvl=new Level(nullptr);
         auto n1=new Node(50,50,lvl);
         n1->unitcount(4);
-        new Node(200,100,lvl);
-        new Node(100,200,lvl);
+        auto n2=new Node(200,100,lvl);
+        auto n3=new Node(100,200,lvl);
+        lvl->setWinFun([=](){
+            return  (n1->unitcount() && n2->unitcount() && n3->unitcount());
+        });
         return lvl;
     };
     levels.push_back(lvl1);

@@ -19,8 +19,19 @@ void Node::draw(Image &target){
     txt<<"units: "<<unitcnt;
     Image::Color fg={255,255,255};
     Image::Color bg={0,0,0};
+    if(unitcnt>0){
+        if(owner==Player::User){
+            bg={0,50,180};
+        }else if(owner==Player::Ki){
+            bg={150,0,0};
+        }
+    }
+
     if(lastClicked==this){
-        swap(fg, bg);
+        fg={255,255,0};
+        auto t=txt.str();
+        txt.str("");
+        txt<<"-"<<t<<"-";
     }
     auto text=Image(txt.str(),18, fg, bg);
     Image tmp=img;

@@ -15,7 +15,7 @@ private:
     int unitcnt=0;
     Player owner;
     int refreshrate=5;
-    int max_storage=100;
+    const int max_storage=100;
     float storage_=0;
 protected:
     void real_event(char ev);

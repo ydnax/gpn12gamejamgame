@@ -7,6 +7,7 @@ namespace picppgl{
 class Node;
 class Unit:public levelObject, gfxobject{
 private:
+    Level *l;
     Image img;
     float x;
     float y;
@@ -16,8 +17,10 @@ private:
     float spy;
     Node *target;
     Player owner;
+    int storage_=0;
+    const int max_storage=10;
 public:
-    Unit(Player owner, int startx, int starty, Node* target, Level*);
+    Unit(Player owner, Node *start, Node *target, Level*);
     Player Owner();
     virtual void draw(Image&);
     virtual void update(int);

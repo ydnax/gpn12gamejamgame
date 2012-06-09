@@ -4,6 +4,7 @@
 #include <vector>
 #include <functional>
 #include <pic-gl/Util/lazy_delete_vector.hpp>
+#include <iostream>
 using std::string;
 namespace picppgl{
 class Level;
@@ -24,7 +25,7 @@ public:
     void delObj(levelObject*);
     bool hasWon();
     float money()const{return money_;}
-    void money(float nval){money_=nval;}
+    void money(float nval){money_=nval;std::cout<<"money "<<nval<<std::endl;}
     ~Level();
 };
 class levelObject{

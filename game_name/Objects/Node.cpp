@@ -9,7 +9,7 @@ Node *lastClicked=nullptr;
 using namespace std;
 
 Node::Node(int x, int y, Level *lvl): levelObject(lvl),
-                                    img("game_name/gfx/town1.png",75, 60),
+                                    img("game_name/gfx/town1.png",70, 70),
                                     x(x),y(y),l(lvl){
     mwindow->addLay(this, mainwindow::layer::towns);
 }

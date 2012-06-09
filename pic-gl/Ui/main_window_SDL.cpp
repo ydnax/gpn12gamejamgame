@@ -8,7 +8,7 @@ namespace picppgl{
 
 mainwindow::mainwindow(int w, int h, int bbp):
         vsurface_(reinterpret_cast<ImageData*>(SDL_SetVideoMode(w, h, bbp, SDL_SWSURFACE ))),
-        background( w, h, 0, 255, 255, reinterpret_cast<ImageData*>(SDL_SetVideoMode(w, h, bbp, SDL_SWSURFACE )) ),
+        background( "game_name/gfx/map.png" ),
         layers(layer::__count),
         h(h), w(w){
     SDL_Init( SDL_INIT_EVERYTHING );

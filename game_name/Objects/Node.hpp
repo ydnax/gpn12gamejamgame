@@ -14,6 +14,8 @@ private:
     Level *l;
     int unitcnt=0;
     Player owner;
+protected:
+    void real_event(char ev);
 public:
     Node(int x, int y, Level*lvl);
     int unitcount()const{return unitcnt;}
@@ -23,6 +25,7 @@ public:
     virtual void draw(Image&);
     virtual void update(int);
     virtual void clicked();
+    virtual void event(char);
     virtual objinfo getBox();
     virtual ~Node();
 };

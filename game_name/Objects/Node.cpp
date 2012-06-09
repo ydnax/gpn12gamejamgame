@@ -14,6 +14,29 @@ Node::Node(int x, int y, Level *lvl): levelObject(lvl),
     mwindow->addLay(this, mainwindow::layer::towns);
 }
 
+void Node::event(char ev){
+    if(!lastClicked)
+        return;
+    lastClicked->real_event(ev);
+}
+
+void Node::real_event(char ev){
+    switch(ev){
+        case 'b':
+            if( !((owner==Player::User)&&(unitcnt>0)) )
+                return;
+            unitcnt++;
+        break;
+        case ' ':
+            lastClicked=nullptr;
+        break;
+        default:
+            cout<<"unknown event: "<<ev<<endl;
+        break;
+    }
+
+}
+
 void Node::draw(Image &target){
     stringstream txt;
     txt<<"units: "<<unitcnt;

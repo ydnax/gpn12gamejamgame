@@ -39,7 +39,7 @@ void Node::real_event(char ev){
 
 void Node::draw(Image &target){
     stringstream txt;
-    txt<<"units: "<<unitcnt;
+    txt<<"u: "<<unitcnt<<" s:"<<int(storage_);
     Image::Color fg={255,255,255};
     Image::Color bg={0,0,0};
     if(unitcnt>0){
@@ -87,7 +87,13 @@ objinfo Node::getBox(){
     return {{x-img.w()/2,y-img.h()/2}, img.w(), img.h()};
 }
 
-void Node::update(int){}
+void Node::update(int ticks){
+    if(storage_<max_storage){
+        storage_+=refreshrate*ticks/1000.0;
+    }
+}
+
+
 Node::~Node(){
     mwindow->remLay(this, mainwindow::layer::towns);
     if(lastClicked==this)

@@ -14,6 +14,9 @@ private:
     Level *l;
     int unitcnt=0;
     Player owner;
+    int refreshrate=5;
+    int max_storage=100;
+    float storage_=0;
 protected:
     void real_event(char ev);
 public:
@@ -22,6 +25,8 @@ public:
     void unitcount(int nval){unitcnt=nval;}
     Player Owner()const{return owner;}
     void Owner(Player nowner){owner=nowner;}
+    int storage()const{return storage_;}
+    void storage(int nval){storage_=nval;}
     virtual void draw(Image&);
     virtual void update(int);
     virtual void clicked();

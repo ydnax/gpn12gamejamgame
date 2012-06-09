@@ -17,7 +17,7 @@ void ClickCtrl::handleInput(){
 }
 void ClickCtrl::clickDispatch(int x, int y){
     objects.realDelete();
-    std::cout<<"clicked: "<<x<<" "<<y<<std::endl;
+    //std::cout<<"clicked: "<<x<<" "<<y<<std::endl;
     for(auto &&obj:objects.data()){
         if(!boxOutsideBox(obj->getBox(), {{x,y},1,1}) ){
             obj->clicked();

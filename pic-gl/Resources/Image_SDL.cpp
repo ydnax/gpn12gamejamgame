@@ -3,6 +3,7 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include <SDL/SDL_rotozoom.h>
+#include <SDL/SDL_ttf.h>
 using namespace std;
 
 namespace picppgl{
@@ -67,6 +68,17 @@ Image::Image(ImageData *d){
     data = d;
 }
 
+Image::Image(string text, int fontsize, Color fg, Color bg){
+    static TTF_Font *font = TTF_OpenFont( "game_name/font/terminal-grotesque.ttf", fontsize );
+    if(!font){
+        std::cout<<"couldn't load font game_name/font/terminal-grotesque.ttf"<<std::endl;
+        std::exit(1);
+    }
+    SDL_Color textColor = { static_cast<Uint8>(fg.r), static_cast<Uint8>(fg.g), static_cast<Uint8>(fg.b), 0 };
+    SDL_Color bgColor = { static_cast<Uint8>(bg.r),static_cast<Uint8>(bg.g),static_cast<Uint8>(bg.b), 0 };
+    data = reinterpret_cast<ImageData*>(TTF_RenderText_Shaded(font, text.c_str(), textColor,bgColor));
+    
+}
 
 Image::Image(const Image& other){
     auto src = reinterpret_cast<SDL_Surface*>(other.getSurface());
@@ -91,6 +103,8 @@ Image::Image(int w, int h, int r, int b, int g, ImageData *context){
                     SDL_MapRGB(reinterpret_cast<SDL_Surface*>(context)->format, 
                     r, b, g));
 }
+
+
 
 Image::~Image(){
     SDL_FreeSurface(reinterpret_cast<SDL_Surface*>(data));

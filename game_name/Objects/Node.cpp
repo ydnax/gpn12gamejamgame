@@ -2,6 +2,8 @@
 #include <pic-gl/Ui/main_window.hpp>
 #include <game_name/Objects/Unit.hpp>
 #include <iostream>
+#include <string>
+#include <sstream>
 namespace picppgl{
 Node *lastClicked=nullptr;
 using namespace std;
@@ -13,11 +15,22 @@ Node::Node(int x, int y, Level *lvl): levelObject(lvl),
 }
 
 void Node::draw(Image &target){
-    target.apply(img, x-(img.w()/2), y-(img.h()/2));
+    stringstream txt;
+    txt<<"units: "<<unitcnt;
+    Image::Color fg={255,255,255};
+    Image::Color bg={0,0,0};
+    if(lastClicked==this){
+        swap(fg, bg);
+    }
+    auto text=Image(txt.str(), 14, fg, bg);
+    Image tmp=img;
+    tmp.apply(img, 0, 0);
+    tmp.apply(text, 0, 0);
+    target.apply(tmp, x-(img.w()/2), y-(img.h()/2));
 }
 
 void Node::clicked(){
-    std::cout<<"recvd click "<<x<<" "<<y<<std::endl;
+    //std::cout<<"recvd click "<<x<<" "<<y<<std::endl;
     if(lastClicked==nullptr){
         //cout<<"sel: "<<this<<endl;
         lastClicked=this;

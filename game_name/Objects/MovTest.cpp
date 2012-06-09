@@ -2,7 +2,7 @@
 #include <pic-gl/Ui/main_window.hpp>
 namespace picppgl{
 ObMovTest::ObMovTest(Level* lvl):levelObject(lvl), img("game_name/gfx/test.png",30, 30), x(50), y(50){
-    mwindow->addLay(this, mainwindow::layer::bullets);
+    mwindow->addLay(this, mainwindow::layer::units);
 }
 void ObMovTest::draw(Image &target){
     target.apply(img, x, y);
@@ -16,5 +16,7 @@ void ObMovTest::update(int ticks){
     y+=spy/1000*ticks;
 }
 
-ObMovTest::~ObMovTest(){}
+ObMovTest::~ObMovTest(){
+
+}
 }

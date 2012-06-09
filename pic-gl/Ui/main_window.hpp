@@ -20,7 +20,7 @@ class mainwindow{
         int h;
         int w;
     public:
-        enum layer{bg=0,enemies=1,player=2, bullets=3, cursor=4, overlay=5, __count=6};
+        enum layer{bg=0, towns=1, units=2, overlay=5, __count=4};
         mainwindow(int h, int w, int bbp=32);
         void render();
         void addLay(gfxobject* obj, const layer lay){layers[lay].data().push_back(obj);}

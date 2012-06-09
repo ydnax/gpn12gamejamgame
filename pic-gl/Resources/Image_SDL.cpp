@@ -6,7 +6,6 @@
 using namespace std;
 
 namespace picppgl{
-//typedef SDL_Surface Image;
 namespace sdl_util{
 
 ImageData *loadImage(const std::string path){

@@ -1,14 +1,17 @@
 #ifndef picppgl_Util_boxtools_hpp
 #define picppgl_Util_boxtools_hpp
+#include <pic-gl/Util/tools.hpp>
 namespace picppgl{
+
+/*
 struct point{
     int x;
     int y;
-};
+};//*/
 struct objinfo{
     point p;
-    int h;
     int w;
+    int h;
 };
 bool boxCollide(const objinfo &A, const objinfo &B);
 

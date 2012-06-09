@@ -8,11 +8,12 @@ private:
     Image img;
     float x=200;
     float y=200;
-    float spx=50;
-    float spy=100;
-
+    int ex, ey;
+    int speed=50;
+    float spx;
+    float spy;
 public:
-    Unit(Level*lvl);
+    Unit(int startx, int starty, int endx, int endy, Level*lvl);
     virtual void draw(Image&);
     virtual void update(int);
     virtual ~Unit();

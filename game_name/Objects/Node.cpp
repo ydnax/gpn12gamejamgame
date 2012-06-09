@@ -22,7 +22,7 @@ void Node::draw(Image &target){
     if(lastClicked==this){
         swap(fg, bg);
     }
-    auto text=Image(txt.str(), 14, fg, bg);
+    auto text=Image(txt.str(),18, fg, bg);
     Image tmp=img;
     tmp.apply(img, 0, 0);
     tmp.apply(text, 0, 0);

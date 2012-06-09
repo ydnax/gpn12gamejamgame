@@ -68,8 +68,8 @@ Image::Image(ImageData *d){
     data = d;
 }
 
-Image::Image(string text, int fontsize, Color fg, Color bg){
-    static TTF_Font *font = TTF_OpenFont( "game_name/font/terminal-grotesque.ttf", fontsize );
+Image::Image(string text,int, Color fg, Color bg){
+    static TTF_Font *font = TTF_OpenFont( "game_name/font/terminal-grotesque.ttf", 18);
     if(!font){
         std::cout<<"couldn't load font game_name/font/terminal-grotesque.ttf"<<std::endl;
         std::exit(1);

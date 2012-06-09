@@ -10,7 +10,8 @@ gamecore::gamecore(){
     window=new mainwindow(800, 500);
     auto lvl1=[]()->Level*{
         auto lvl=new Level([](){return false;});
-        new Node(50,50,lvl);
+        auto n1=new Node(50,50,lvl);
+        n1->unitcount(4);
         new Node(200,100,lvl);
         new Node(100,200,lvl);
         return lvl;

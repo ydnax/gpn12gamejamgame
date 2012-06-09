@@ -9,8 +9,11 @@ private:
     Image img;
     int x,y;
     Level *l;
+    int unitcnt;
 public:
     Node(int x, int y, Level*lvl);
+    int unitcount()const{return unitcnt;}
+    void unitcount(int nval){unitcnt=nval;}
     virtual void draw(Image&);
     virtual void update(int);
     virtual void clicked();

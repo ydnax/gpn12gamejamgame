@@ -24,12 +24,15 @@ void Node::clicked(){
     }else if(lastClicked==this){
         ///cout<<"double"<<endl;
         lastClicked=nullptr;
-    }else{
+    }else if(lastClicked->unitcount()>0){
         //cout<<"SEND THE TROOPS"<<endl;
         auto ex=lastClicked->getBox().p.x;
         auto ey=lastClicked->getBox().p.y;
-        new Unit{ex, ey, x-img.w()/2,y-img.h()/2,l};
+        lastClicked->unitcount(lastClicked->unitcount()-1);
+        new Unit{ex, ey, this,l};
         //lastClicked=nullptr; 
+    }else{
+        cout<<"No units in "<<this<<endl;
     }
 }
 
@@ -40,6 +43,8 @@ objinfo Node::getBox(){
 void Node::update(int){}
 Node::~Node(){
     mwindow->remLay(this, mainwindow::layer::towns);
+    if(lastClicked==this)
+        lastClicked=nullptr;
 }
 
 

@@ -1,15 +1,17 @@
 #include "Unit.hpp"
 #include <pic-gl/Ui/main_window.hpp>
 #include <pic-gl/Util/tools.hpp>
+#include <game_name/Objects/Node.hpp>
 
 #include <iostream>
 namespace picppgl{
     using namespace std;
-Unit::Unit(int startx, int starty, int endx, int endy, Level* lvl):
+Unit::Unit(int startx, int starty, Node* target_, Level* lvl):
         levelObject(lvl),
         img("game_name/gfx/robo1.png",15, 30),
-        x(startx), y(starty),
-        ex(endx), ey(endy){
+        x(startx), y(starty), target(target_){
+    ex=target->getBox().p.x;
+    ey=target->getBox().p.y;
     ex=ex+(img.w()/2);
     ey=ey+(img.h()/2);
     mwindow->addLay(this, mainwindow::layer::units);
@@ -29,8 +31,10 @@ void Unit::draw(Image &target){
 void Unit::update(int ticks){
     x+=spx*ticks/1000;
     y+=spy*ticks/1000;
-    if(cmp<float>(x, ex, 1)&&cmp<float>(y, ey,1))
+    if(cmp<float>(x, ex, 1)&&cmp<float>(y, ey,1)){
+        target->unitcount(target->unitcount()+1);
         delete this;
+    }
 }
 
 Unit::~Unit(){

@@ -3,6 +3,7 @@
 #include <pic-gl/Gameflow/Level.hpp>
 #include <pic-gl/Ui/gfx_object.hpp>
 namespace picppgl{
+class Node;
 class Unit:public levelObject, gfxobject{
 private:
     Image img;
@@ -12,8 +13,9 @@ private:
     int speed=50;
     float spx;
     float spy;
+    Node *target;
 public:
-    Unit(int startx, int starty, int endx, int endy, Level*);
+    Unit(int startx, int starty, Node* target, Level*);
     virtual void draw(Image&);
     virtual void update(int);
     virtual ~Unit();

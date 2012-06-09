@@ -15,6 +15,7 @@ public:
 private:
     lazyDeleteVector<levelObject*> objects;
     winCondition winfun;
+    float money_=0;
 public:
     Level(winCondition wc):winfun(wc){}
     void setWinFun(winCondition wc){winfun=wc;}
@@ -22,6 +23,8 @@ public:
     void addObj(levelObject*);
     void delObj(levelObject*);
     bool hasWon();
+    float money()const{return money_;}
+    void money(float nval){money_=nval;}
     ~Level();
 };
 class levelObject{

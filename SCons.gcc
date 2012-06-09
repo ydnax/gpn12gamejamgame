@@ -1,5 +1,5 @@
 env = Environment()
-env.Replace( CXX      = "gcc-4.7.0" )
+env.Replace( CXX      = "g++-4.7.0" )
 env.Append(  CCFLAGS  = '-pedantic -Wall -Wextra -Werror -std=c++11' )
 env.Append(  LIBS     = ['SDL', 'SDL_image', 'SDL_gfx', 'SDL_ttf',] )
 env.Append(  CPPPATH  = '.' )

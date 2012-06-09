@@ -8,7 +8,7 @@ namespace picppgl{
     using namespace std;
 Unit::Unit(Player owner, Node *start , Node *target_, Level* lvl):
         levelObject(lvl),l(lvl),
-        img("game_name/gfx/robo1.png",15, 30),
+        img("game_name/gfx/robo1.png",25, 25),
         target(target_), owner(owner){ 
     int startx=x=start->getBox().p.x;
     int starty=y=start->getBox().p.y;    

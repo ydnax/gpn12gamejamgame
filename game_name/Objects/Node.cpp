@@ -10,6 +10,7 @@ using namespace std;
 
 Node::Node(int x, int y, Level *lvl): levelObject(lvl),
                                     img("game_name/gfx/town1.png",70, 70),
+                                    img2("game_name/gfx/town2.png",70, 70),
                                     x(x),y(y),l(lvl){
     mwindow->addLay(this, mainwindow::layer::towns);
 }
@@ -61,6 +62,9 @@ void Node::draw(Image &target){
     }
     auto text=Image(txt.str(),18, fg, bg);
     Image tmp=img;
+    if(lastClicked==this){
+        tmp=img2;
+    }
     tmp.apply(img, 0, 0);
     tmp.apply(text, 0, 0);
     target.apply(tmp, x-(img.w()/2), y-(img.h()/2));

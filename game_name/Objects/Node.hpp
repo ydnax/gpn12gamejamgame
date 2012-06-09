@@ -10,11 +10,12 @@ public:
     enum player{user, ki};
 private:
     Image img;
+    Image img2;
     int x,y;
     Level *l;
     int unitcnt=0;
     Player owner;
-    int refreshrate=5;
+    int refreshrate=2;
     const int max_storage=100;
     float storage_=0;
 protected:

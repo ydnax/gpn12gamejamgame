@@ -2,7 +2,7 @@ env = Environment()
 env.Replace( CXX      = "clang++" )
 env.Append(  CXXFLAGS = "-stdlib=libc++ -fcolor-diagnostics")
 env.Append(  CCFLAGS  = '-pedantic -Wall -Wextra -Werror -std=c++11' )
-env.Append(  LIBS     = ['c++','SDL', 'SDL_image', 'SDL_gfx', 'SDL_ttf',] )
+env.Append(  LIBS     = ['c++','SDL', 'SDL_image', 'SDL_gfx', 'SDL_mixer', 'SDL_ttf',] )
 env.Append(  CPPPATH  = '.' )
 debug = ARGUMENTS.get('debug', 0)
 if int(debug)==1:

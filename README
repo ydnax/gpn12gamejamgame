@@ -2,7 +2,7 @@ REQUIREMENTS:
 tested with
 clang++ 3.1r2 (for problems with clang and the gcc stl see http://libcxx.llvm.org/ )
 required libs:
-sdl, sdl_image, sdl_gfx, sdl_ttf
+sdl, sdl_image, sdl_gfx, sdl_ttf, sdl_mnixer
 
 BUILD:
 scons
@@ -11,3 +11,7 @@ add debug=1 to build with debug symbols and (with clang) with runtime checks
 
 font:
 Terminal Grotesque (https://github.com/raphaelbastide/Terminal-Grotesque) SIL Open Font License 
+
+music:
+"jan rst - chillout seed" cc by sa
+see https://www.youtube.com/watch?v=vydpc4AW9cc and  http://www.misterhuge.de

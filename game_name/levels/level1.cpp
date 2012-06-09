@@ -17,4 +17,6 @@
     lvl->setWinFun([=](){
         return  ((n1->unitcount() && n2->unitcount() && n3->unitcount())&&
             ( (n1->Owner()==Player::User) && (n2->Owner()==Player::User) && (n3->Owner()==Player::User) ));
+    });
+    return lvl;
 }

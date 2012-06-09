@@ -1,7 +1,7 @@
 env = Environment()
 env.Replace( CXX      = "g++-4.7.0" )
 env.Append(  CCFLAGS  = '-pedantic -Wall -Wextra -Werror -std=c++11' )
-env.Append(  LIBS     = ['SDL', 'SDL_image', 'SDL_gfx', 'SDL_ttf',] )
+env.Append(  LIBS     = ['SDL', 'SDL_image', 'SDL_gfx', 'SDL_mixer', 'SDL_ttf',] )
 env.Append(  CPPPATH  = '.' )
 debug = ARGUMENTS.get('debug', 0)
 if int(debug)==1:

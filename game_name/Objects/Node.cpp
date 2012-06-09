@@ -37,15 +37,15 @@ void Node::clicked(){
     }else if(lastClicked==this){
         ///cout<<"double"<<endl;
         lastClicked=nullptr;
-    }else if(lastClicked->unitcount()>0){
+    }else if( (lastClicked->unitcount()>1)&&(lastClicked->Owner()==Player::User) ){
         //cout<<"SEND THE TROOPS"<<endl;
         auto ex=lastClicked->getBox().p.x;
         auto ey=lastClicked->getBox().p.y;
         lastClicked->unitcount(lastClicked->unitcount()-1);
-        new Unit{ex, ey, this,l};
+        new Unit{lastClicked->Owner(), ex, ey, this,l};
         //lastClicked=nullptr; 
     }else{
-        cout<<"No units in "<<this<<endl;
+        cout<<"You have no units to move there "<<this<<endl;
     }
 }
 

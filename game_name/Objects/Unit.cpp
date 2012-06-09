@@ -6,10 +6,10 @@
 #include <iostream>
 namespace picppgl{
     using namespace std;
-Unit::Unit(int startx, int starty, Node* target_, Level* lvl):
+Unit::Unit(Player owner, int startx, int starty, Node* target_, Level* lvl):
         levelObject(lvl),
         img("game_name/gfx/robo1.png",15, 30),
-        x(startx), y(starty), target(target_){
+        x(startx), y(starty), target(target_), owner(owner){
     ex=target->getBox().p.x;
     ey=target->getBox().p.y;
     ex=ex+(img.w()/2);
@@ -25,6 +25,9 @@ Unit::Unit(int startx, int starty, Node* target_, Level* lvl):
     spx=speed*ratiox;
     spy=speed*ratioy;
 }
+
+Player Unit::Owner(){return owner;}
+
 void Unit::draw(Image &target){
     target.apply(img, x+(img.w()/2), y+(img.h()/2));
 }
@@ -32,7 +35,15 @@ void Unit::update(int ticks){
     x+=spx*ticks/1000;
     y+=spy*ticks/1000;
     if(cmp<float>(x, ex, 1)&&cmp<float>(y, ey,1)){
-        target->unitcount(target->unitcount()+1);
+        if( target->unitcount()==0){
+            target->unitcount(1);
+            target->Owner(owner);
+        }else if(target->Owner()==owner){
+            target->unitcount(target->unitcount()+1);
+        }else{
+            target->unitcount(target->unitcount()-1);
+        }
+        
         delete this;
     }
 }

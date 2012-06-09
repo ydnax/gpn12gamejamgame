@@ -3,6 +3,7 @@
 #include <pic-gl/Gameflow/Level.hpp>
 #include <pic-gl/Ui/gfx_object.hpp>
 #include <game_name/GameLogic/UnitCtrl.hpp>
+#include <game_name/GameLogic/Players.hpp>
 namespace picppgl{
 class Node:public levelObject, gfxobject, clickable{
 public:
@@ -12,10 +13,13 @@ private:
     int x,y;
     Level *l;
     int unitcnt=0;
+    Player owner;
 public:
     Node(int x, int y, Level*lvl);
     int unitcount()const{return unitcnt;}
     void unitcount(int nval){unitcnt=nval;}
+    Player Owner()const{return owner;}
+    void Owner(Player nowner){owner=nowner;}
     virtual void draw(Image&);
     virtual void update(int);
     virtual void clicked();

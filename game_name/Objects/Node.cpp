@@ -9,7 +9,7 @@ Node::Node(int x, int y, Level*lvl): levelObject(lvl),
 }
 
 void Node::draw(Image &target){
-    target.apply(img, x+(img.w()/2), y+(img.h()/2));
+    target.apply(img, x-(img.w()/2), y-(img.h()/2));
 }
 
 void Node::clicked(){

@@ -20,22 +20,15 @@ Unit::Unit(int startx, int starty, int endx, int endy, Level* lvl):
     float ratioy=ly/distance;
     spx=speed*ratiox;
     spy=speed*ratioy;
-    /*
-    cout<<distance<<endl;
-    cout<<lx<<endl;
-    cout<<spx<<endl;
-    cout<<"------------"<<endl;
-    cout<<ly<<endl;
-    cout<<spy<<endl;
-    //std::exit(0);//*/
 }
 void Unit::draw(Image &target){
     target.apply(img, x+(img.w()/2), y+(img.h()/2));
 }
 void Unit::update(int ticks){
-    
     x+=spx*ticks/1000;
     y+=spy*ticks/1000;
+    if(cmp<float>(x, ex, 1)&&cmp<float>(y, ey,1))
+        delete this;
 }
 
 Unit::~Unit(){

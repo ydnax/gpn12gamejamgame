@@ -1,4 +1,6 @@
+
 #include "boxtools.hpp"
+
 namespace picppgl{
 /*
 bool boxCollide(const objinfo &A, const objinfo &B){
@@ -60,6 +62,7 @@ bool boxCollide(const objinfo &A, const objinfo &B){
     return true;
 }//*/
 
+
 bool boxOutsideBox(const objinfo &A, const objinfo &B){
     int leftA, leftB;
     int rightA, rightB;
@@ -76,6 +79,7 @@ bool boxOutsideBox(const objinfo &A, const objinfo &B){
     rightB = B.p.x+B.w;
     topB = B.p.y ;
     bottomB = B.p.y + B.h;
+
     if(topA>bottomB)
         return true;
     if(leftA>rightB)

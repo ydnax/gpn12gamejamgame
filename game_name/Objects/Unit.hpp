@@ -6,14 +6,14 @@ namespace picppgl{
 class Unit:public levelObject, gfxobject{
 private:
     Image img;
-    float x=200;
-    float y=200;
+    float x;
+    float y;
     int ex, ey;
     int speed=50;
     float spx;
     float spy;
 public:
-    Unit(int startx, int starty, int endx, int endy, Level*lvl);
+    Unit(int startx, int starty, int endx, int endy, Level*);
     virtual void draw(Image&);
     virtual void update(int);
     virtual ~Unit();

@@ -68,16 +68,17 @@ Image::Image(ImageData *d){
     data = d;
 }
 
-Image::Image(string text,int, Color fg, Color bg){
-    static TTF_Font *font = TTF_OpenFont( "game_name/font/terminal-grotesque.ttf", 18);
+Image::Image(string text,int size, Color fg, Color bg){
+    auto fontpath="game_name/font/terminal-grotesque.ttf";
+    auto *font = TTF_OpenFont( fontpath, size);
     if(!font){
-        std::cout<<"couldn't load font game_name/font/terminal-grotesque.ttf"<<std::endl;
+        std::cout<<"couldn't load font: "<<fontpath<<std::endl;
         std::exit(1);
     }
     SDL_Color textColor = { static_cast<Uint8>(fg.r), static_cast<Uint8>(fg.g), static_cast<Uint8>(fg.b), 0 };
     SDL_Color bgColor = { static_cast<Uint8>(bg.r),static_cast<Uint8>(bg.g),static_cast<Uint8>(bg.b), 0 };
     data = reinterpret_cast<ImageData*>(TTF_RenderText_Shaded(font, text.c_str(), textColor,bgColor));
-    
+    TTF_CloseFont(font);
 }
 
 Image::Image(const Image& other){

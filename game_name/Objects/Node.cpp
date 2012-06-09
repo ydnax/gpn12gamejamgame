@@ -31,7 +31,7 @@ void Node::draw(Image &target){
         fg={255,255,0};
         auto t=txt.str();
         txt.str("");
-        txt<<"-"<<t<<"-";
+        txt<<"["<<t<<"]";
     }
     auto text=Image(txt.str(),18, fg, bg);
     Image tmp=img;

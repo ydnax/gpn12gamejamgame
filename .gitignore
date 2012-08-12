@@ -3,3 +3,5 @@
 *.o
 notes
 *.log
+build/*
+game_name/LevelLoader/LevelLoader.cpp

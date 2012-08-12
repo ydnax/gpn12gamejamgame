@@ -1,0 +1,30 @@
+VERSION: 1
+--MESSAGE 23 42 "A EST B DEDE"--yay
+--test
+--    MESSAGE 22 33 "A new text"
+--TOWN 100 100 40 ENEMY
+
+--TOWN 180 300 99 PLAYER
+--END LEVEL
+--TOWN 100 100 40 PLAYER
+
+--TOWN 180 300 99 ENEMY
+
+--level 1:
+TOWN 50 50 10 PLAYER
+TOWN 400 100 0 ENEMY
+TOWN 100 400 4 ENEMY
+
+MESSAGE 200 200 "transport $things, make money, transport more things."
+MESSAGE 200 250 "select one of your(blue) towns by clicking on it."
+MESSAGE 200 300 "send units(u) to other towns by clicking on them"
+MESSAGE 200 350 "deselect a town by clicking it or pressing space"
+MESSAGE 200 400 "press b to buy new units for a selected town"
+--add moneyinfo
+END LEVEL
+
+--level 2
+TOWN 50  50  10 PLAYER
+TOWN 400 100 0 ENEMY
+TOWN 150 350 4 ENEMY
+TOWN 700 250 20 ENEMY

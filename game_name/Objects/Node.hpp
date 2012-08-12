@@ -6,15 +6,13 @@
 #include <game_name/GameLogic/Players.hpp>
 namespace picppgl{
 class Node:public levelObject, gfxobject, clickable{
-public:
-    enum player{user, ki};
 private:
     Image img;
     Image img2;
     int x,y;
     Level *l;
     int unitcnt=0;
-    Player owner;
+    Player owner=Player::Ki;
     int refreshrate=2;
     const int max_storage=100;
     float storage_=0;

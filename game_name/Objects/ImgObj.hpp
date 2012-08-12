@@ -2,6 +2,7 @@
 #define objects_imgobj_hpp
 #include <pic-gl/Gameflow/Level.hpp>
 #include <pic-gl/Ui/gfx_object.hpp>
+#include <pic-gl/Ui/main_window.hpp>
 #include <game_name/GameLogic/Players.hpp>
 namespace picppgl{
 class ImgObj:public levelObject, gfxobject{
